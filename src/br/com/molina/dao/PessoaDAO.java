@@ -3,6 +3,7 @@ package br.com.molina.dao;
 import br.com.molina.dto.PessoaDTO;
 import br.com.molina.jdbc.ConexaoUtil;
 
+import java.awt.image.ShortLookupTable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -24,5 +25,18 @@ public class PessoaDAO {
             e.printStackTrace();
         }
 
+    }
+
+    public void remover(int idPessoa){
+        try{
+            Connection connection = ConexaoUtil.getInstance().getConnection();
+            String sql = "DELETE FROM PESSOA WHERE ID_PESSOA = ?";
+            PreparedStatement statement= connection.prepareStatement(sql);
+            statement.setInt(1, idPessoa);
+            statement.execute();
+            statement.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
