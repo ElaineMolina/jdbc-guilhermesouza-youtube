@@ -19,4 +19,7 @@ public class PessoaDTO {
     public void setId_pessoa(int id_pessoa) {
         this.id_pessoa = id_pessoa;
     }
+    public String toString(){
+        return  getId_pessoa() + " "+ getNome();
+    }
 }

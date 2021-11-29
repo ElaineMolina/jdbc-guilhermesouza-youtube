@@ -84,7 +84,11 @@ public class PessoaDAO {
     public static void main(String[] args){
 
         PessoaDAO pessoaDAO = new PessoaDAO();
-
+        List<PessoaDTO> listaPessoas = new ArrayList<>();
+        listaPessoas = pessoaDAO.listarTodos();
+        for(int i = 0; i < listaPessoas.size(); i++){
+            System.out.println(listaPessoas.get(i));
+        }
 
     }
 
