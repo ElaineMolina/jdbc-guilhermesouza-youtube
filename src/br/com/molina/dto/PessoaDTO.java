@@ -1,6 +1,6 @@
 package br.com.molina.dto;
 
-public class Pessoa {
+public class PessoaDTO {
     private int id_pessoa;
     private String nome;
 
