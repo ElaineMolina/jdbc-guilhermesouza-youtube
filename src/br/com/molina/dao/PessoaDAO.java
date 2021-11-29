@@ -16,10 +16,9 @@ public class PessoaDAO {
 
             Connection connection = ConexaoUtil.getInstance().getConnection();
 
-            String sql = "INSERT INTO PESSOA(ID_PESSOA, NOME) VALUES(?, ?)";
+            String sql = "INSERT INTO PESSOA(NOME) VALUES(?)";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, pessoaDTO.getId_pessoa());
-            statement.setString(2, pessoaDTO.getNome());
+            statement.setString(1, pessoaDTO.getNome());
             statement.execute();
             connection.close();
         }catch (Exception e){
@@ -60,6 +59,20 @@ public class PessoaDAO {
             e.printStackTrace();
         }
         return listaPessoas;
+    }
+
+    public void atualizar(PessoaDTO pessoaDTO){
+        try {
+            Connection connection = ConexaoUtil.getInstance().getConnection();
+            String sql = "UPDATE PESSOA SET NOME = ? WHERE ID_PESSOA = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, pessoaDTO.getNome());
+            statement.setInt(2, pessoaDTO.getId_pessoa());
+            statement.execute();
+            statement.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
 
