@@ -21,6 +21,9 @@ public class PessoaDAO {
             statement.setString(1, pessoaDTO.getNome());
             statement.execute();
             connection.close();
+
+            System.out.println("Inserido com sucesso");
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -35,6 +38,8 @@ public class PessoaDAO {
             statement.setInt(1, idPessoa);
             statement.execute();
             statement.close();
+
+            System.out.println("Removido com sucesso");
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -70,9 +75,17 @@ public class PessoaDAO {
             statement.setInt(2, pessoaDTO.getId_pessoa());
             statement.execute();
             statement.close();
+
+            System.out.println("Atualizado com sucesso");
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+    public static void main(String[] args){
+
+        PessoaDAO pessoaDAO = new PessoaDAO();
+
+
     }
 
 
